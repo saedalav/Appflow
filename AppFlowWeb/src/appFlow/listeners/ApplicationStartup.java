@@ -19,8 +19,6 @@ public class ApplicationStartup implements ServletContextListener {
 	final private String jdbcUser = "root";
 	final private String jdbcPassword = "asdfas32"; 
 	
-	String test;
-	
 	@Override
 	public void contextDestroyed(ServletContextEvent arg0) {
 		ProcessEngines.destroy();
