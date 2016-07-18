@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+
+
+      <div class="wrapper">
+        <h1><a href="welcome.xhtml" id="logo">Appflow</a></h1>
+        <nav>
+          <ul id="menu">
+            <ui:insert name="selector1"><li><a href="welcome.xhtml"><span><span>Home</span></span></a></li></ui:insert>
+            <ui:insert name="selector2"><li><a href="about_us.xhtml"><span><span>About Us</span></span></a></li></ui:insert>
+            <ui:insert name="selector3"><li class="nav4"><a href="tutorials.xhtml"><span><span>Tutorials</span></span></a></li></ui:insert>
+            <ui:insert name="selector4"><li class="nav5"><a href="github.xhtml"><span><span>Github</span></span></a></li></ui:insert>
+          </ul>
+        </nav>
+      </div>
+
+
+</ui:composition>
+

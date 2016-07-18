@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="/Resources/Templates/MasterLayout.xhtml">
+
+	<ui:define name="windowTitle">Database Script Download</ui:define>
+
+
+	<ui:define name="content">
+
+
+		<article style="height: 800px;">
+
+			<section>
+				<div>
+					<f:view>
+						<f:event type="preRenderView" listener="#{dbDownload.onLoad}" />
+						<h:form id="form">
+							<h2>1. Select your database vendor:</h2>
+							<br/>
+							<p:panelGrid columns="4">
+
+								<br />
+								
+
+								<p:dataTable id="vendors" var="v"
+									style="width:600px;align:center;"
+									value="#{dbDownload.vendorDataModel}"
+									selection="#{dbDownload.selectedVendor}" rowKey="#{v.id}"
+									selectionMode="single">
+									<f:facet name="header">  
+          							 Vendors  
+        							</f:facet>
+
+									<p:column>
+
+										<p:graphicImage value="/Resources/DBimages/#{v.photo}.jpg"
+											width="120" height="60" />
+           								 #{v.name}  
+       								 </p:column>
+								</p:dataTable>
+
+
+							</p:panelGrid>
+							<h2>2. Click to download your vendor specific database scripts:</h2>
+							<br/>
+							<p:panelGrid columns="3">
+							<br/>
+							<p:commandButton id="ScriptDownloadLink" value="    Script Download    "
+								ajax="false" icon="ui-icon-arrowthichk-s"  style="width: 300px; height: 50px;font-size:150%;">
+								<p:fileDownload value="#{dbDownload.dbScript}" />
+							</p:commandButton>
+</p:panelGrid>
+						</h:form>
+					</f:view>
+
+
+				</div>
+			</section>
+		</article>
+	</ui:define>
+</ui:composition>

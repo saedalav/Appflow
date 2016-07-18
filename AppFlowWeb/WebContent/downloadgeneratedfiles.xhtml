@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="/Resources/Templates/MasterLayout.xhtml">
+
+	<ui:define name="windowTitle">Form Requirement Page</ui:define>
+
+
+	<ui:define name="content">
+
+
+		<article id="content" style="height: 500px;">
+
+			<section class="single_col">
+				<h2 class="pad_bot1">Form Requirements</h2>
+				<div class="wrapper">
+					<br></br> <br></br>
+					<f:view>
+						<f:event type="preRenderView" listener="#{download.onLoad}" />
+						<h:form id="form">
+							<p>Click to download your generated files:</p>
+							<p:commandButton id="pageDownloadLink" value=".XHTML Download" ajax="false"
+								onclick="PrimeFaces.monitorDownload(start, stop)"
+								icon="ui-icon-arrowthichk-s">
+								<p:fileDownload value="#{download.xhtmlFile}" />
+							</p:commandButton>
+							<p:commandButton id="beanDownloadLink" value="Bean Download" ajax="false"
+								onclick="PrimeFaces.monitorDownload(start, stop)"
+								icon="ui-icon-arrowthichk-s" disabled="#{!pageReqForm.generateBeanSelected}">
+								<p:fileDownload value="#{download.beanFile}" />
+							</p:commandButton>
+
+
+						</h:form>
+						<br/><br/><br/><br/><br/><br/><br/>
+						<p>Need to generate another page?</p>
+						<br/>
+						<h:form id="generateAnotherPage">
+							<p:commandButton id="beanDownloadLink" value="Generate Another Page Now!" action="#{dashboard.onPageGeneratorSelect}"
+								>
+								
+							</p:commandButton>
+						
+						</h:form>
+					</f:view>
+
+					<script type="text/javascript">  
+function start() {  
+    PF('statusDialog').show();  
+}  
+  
+function stop() {  
+    PF('statusDialog').hide();  
+}  
+        </script>
+				</div>
+			</section>
+		</article>
+	</ui:define>
+</ui:composition>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="/Resources/Templates/MasterLayout.xhtml">
+
+	<ui:define name="windowTitle">Download Sample Project</ui:define>
+
+
+	<ui:define name="content">
+
+
+		<article id="content" style="height: 500px;">
+
+			<section class="single_col">
+				<h2 class="pad_bot1">Form Requirements</h2>
+				<div class="wrapper">
+					<br></br> <br></br>
+					<f:view>
+						<f:event type="preRenderView" listener="#{sampleProjectDownload.onLoad}" />
+						<h:form id="form">
+							<p>Click to download sample project:</p>
+							<p:commandButton id="sampleProjectDownloadLink" value="Sample Project Download" ajax="false"
+								onclick="PrimeFaces.monitorDownload(start, stop)"
+								icon="ui-icon-arrowthichk-s">
+								<p:fileDownload value="#{sampleProjectDownload.mavenizedSampleProjectZipFile}" />
+							</p:commandButton>
+
+						</h:form>
+					</f:view>
+
+					<script type="text/javascript">  
+function start() {  
+    PF('statusDialog').show();  
+}  
+  
+function stop() {  
+    PF('statusDialog').hide();  
+}  
+        </script>
+				</div>
+			</section>
+		</article>
+	</ui:define>
+</ui:composition>

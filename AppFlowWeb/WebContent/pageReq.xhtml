@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="/Resources/Templates/MasterLayout.xhtml">
+
+	<ui:define name="windowTitle">Form Requirement Page</ui:define>
+
+
+	<ui:define name="content">
+
+
+		<article id="content" style="height: 500px;">
+
+			<section class="single_col">
+				<h2 class="pad_bot1">Form Requirements</h2>
+				<div class="wrapper">
+					<br></br> <br></br>
+					<f:view>
+						<f:event type="preRenderView" listener="#{pageReqForm.onLoad}" />
+						<h:form id="PageReqForm" style="background-color:transparent;">
+							<p:panelGrid id="panel" column="2" cellpadding="5"
+								cellspacing="0"
+								style="border: none; background-color:transparent;">
+								<p:messages id="msgs" />
+								<p:row style="background-color:transparent;">
+									<p:column style="background-color:transparent;">
+										<p:outputLabel id="pageTitle" for="pageTitleField"
+											value="Page Title:"></p:outputLabel>
+									</p:column>
+									<p:column>
+										<p:keyboard id="pageTitleField" required="true"
+											value="#{pageReqForm.pageTitle}" layout="qwertyBasic" />
+									</p:column>
+
+								</p:row>
+								<p:row>
+									<p:column>
+										<p:outputLabel id="InputFieldCount"
+											for="InputFieldCountSlider" value="Number of Input Fields:"></p:outputLabel>
+									</p:column>
+									<p:column>
+										<p:keyboard id="InputFieldCountSlider"
+											value="#{pageReqForm.fieldCount}" showMode="button"
+											buttonImageOnly="true"
+											buttonImage="/Resources/Images/keyboardpencil.png"
+											keypadOnly="false" layout="keypad" />
+
+									</p:column>
+
+								</p:row>
+								<p:row>
+									<p:column>
+										<p:outputLabel id="CheckBoxFieldCount"
+											for="CheckBoxCountSlider" value="Number of Checkboxes:"></p:outputLabel>
+									</p:column>
+									<p:column>
+										<p:keyboard id="CheckBoxCountSlider"
+											value="#{pageReqForm.checkboxCount}" showMode="button"
+											buttonImageOnly="true"
+											buttonImage="/Resources/Images/keyboardpencil.png"
+											keypadOnly="false" layout="keypad" />
+
+									</p:column>
+
+								</p:row>
+								<p:row>
+									<p:column>
+										<p:outputLabel id="cmdButtonCount" for="cmdButtonCountSlider"
+											value="Number of command Buttons:"></p:outputLabel>
+									</p:column>
+									<p:column>
+										<p:keyboard id="cmdButtonCountSlider"
+											value="#{pageReqForm.cmdButtonCount}" showMode="button"
+											buttonImageOnly="true"
+											buttonImage="/Resources/Images/keyboardpencil.png"
+											keypadOnly="false" layout="keypad" />
+
+
+										<p:slider for="cmdButtonCountSlider" rendered="false"></p:slider>
+									</p:column>
+
+								</p:row>
+								<p:row>
+									<p:column>
+										<p:commandButton id="submitFields" value="Submit Fileds"
+											action="#{pageReqForm.onSubmit}" update="PageReqForm"></p:commandButton>
+										<br />
+										<p:outputLabel id="checkboxLabel" for="checkBox"
+											value="Generate Backing Bean?  "></p:outputLabel>
+										<p:selectBooleanButton id="checkBox"
+											value="#{pageReqForm.generateBeanSelected}" onLabel="Yes"
+											offLabel="No" onIcon="ui-icon-check" offIcon="ui-icon-close">
+										</p:selectBooleanButton>
+
+
+									</p:column>
+
+
+								</p:row>
+							</p:panelGrid>
+						</h:form>
+					</f:view>
+				</div>
+			</section>
+		</article>
+	</ui:define>
+</ui:composition>

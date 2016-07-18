@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="/Resources/Templates/MasterLayout.xhtml">
+
+	<ui:define name="windowTitle">Form Requirement Page</ui:define>
+
+
+	<ui:define name="content">
+
+
+		<article id="content" style="height: 500px;">
+
+			<section class="single_col">
+				<h2 class="pad_bot1">Form Requirements</h2>
+				<div class="wrapper">
+					<br></br> <br></br>
+
+					<h:form id="editFieldForm" style="background-color:transparent;">
+						<p:messages id="msgs"/>
+						<p:dataTable var="field" value="#{pageReqForm.fieldInfos}"
+						paginator="true" rows="10"
+                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                 rowsPerPageTemplate="3,5,10">>
+							<p:column headerText="Field Name">
+								<p:inplace id="basic">
+									<p:inputText id="fieldName" value="#{field.name}" required="true">
+										<f:validateLength minimum="2" />
+									</p:inputText>
+									
+								</p:inplace>
+								<p:message for="basic" display="icon" />
+							</p:column>
+
+							<p:column headerText="Field Type">
+								<h:outputText value="#{field.type}" />
+							</p:column>
+
+						</p:dataTable>
+						<p:column>
+							<p:commandButton id="generatepage" type="submit" update="editFieldForm"
+								value="Generate Page" action="#{pageReqForm.onGenerate}" ></p:commandButton>
+						</p:column>
+					</h:form>
+				</div>
+			</section>
+		</article>
+	</ui:define>
+</ui:composition>

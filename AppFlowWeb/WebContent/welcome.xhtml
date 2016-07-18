@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	template="/Resources/Templates/FirstPageLayout.xhtml">
+
+<ui:define name="windowTitle">Appflow</ui:define>
+<ui:define name="selector1"><li id="menu_active"><a href="welcome.xhtml"><span><span>Home</span></span></a></li></ui:define>
+
+		<p:commandButton id="DB_Script" value="DataBase Scripts"></p:commandButton>
+
+<ui:define name="content">
+<div id="page1">
+<article id="content">
+      <section class="col1">
+        <h2>Services</h2>
+        
+        <div class="wrapper pad_bot2">
+          <h:form class="left marg_right1">
+          <h:commandLink id="GeneratePage"  styleClass="accountEditBtn" action="#{dashboard.onPageGeneratorSelect}"><h:graphicImage url="../Resources/Images/jsf.jpg"  /> </h:commandLink> 
+          </h:form>
+          <p class="pad_bot1 pad_top1"><span class="color1">Generate JSF Forms</span></p>
+          <p>Generate JSF forms's back end and front end code to use with Activiti User Tasks. </p>
+        </div>
+        
+        <div class="wrapper pad_bot2">
+          <h:form class="left marg_right1">
+          <h:commandLink id="sampleProjPage"  styleClass="accountEditBtn" action="#{dashboard.onDownloadSampleProjectSelect}"><h:graphicImage url="../Resources/Images/workspace.jpg"  /> </h:commandLink> 
+          </h:form>
+          <p class="pad_bot1 pad_top1"><span class="color1">Sample Mavenized Workspace</span></p>
+          <p>A sample mavenized workspace that contains all you need to begin </p>
+        </div>
+        
+        <div class="wrapper pad_bot2">
+          <h:form class="left marg_right1">
+          <h:commandLink id="dbScriptDL"  styleClass="accountEditBtn" action="#{dashboard.onDBScriptSelect}"><h:graphicImage url="../Resources/Images/database.png"  /> </h:commandLink> 
+          </h:form>
+          <p class="pad_bot1 pad_top1"><span class="color1">Activiti Database</span></p>
+          <p>Get Activiti DDL Scripts for the database of your choice </p>
+        </div>
+        
+        
+      </section>
+       <section class="col2">
+        <h2 class="pad_bot1">Find us on Github</h2>
+        <div class="wrapper">
+          <figure class="left marg_right1"><img src="../Resources/Images/github.jpg" alt=""/></figure>
+          <p class="pad_top1 pad_bot1"><strong class="color1">Explore an Activiti and JSF Application on Github</strong></p>
+          <p class="pad_bot3">This web application, a 4th year project application, is developed on top of Activiti BPM Platform and JSF Framework</p>
+          <a href="https://github.com" class="button right">Explore Now</a> </div>
+          
+          
+        <h2 class="pad_bot1 pad_top1">Learn More ...</h2>
+        <div class="wrapper">
+          <figure class="left marg_right1"><img src="../Resources/Images/tutorials.png" alt=""/></figure>
+          <p class="pad_top1 pad_bot1"><strong class="color1">Learn what you need to know before starting</strong></p>
+          <p class="pad_bot3">Learn about Activiti BPM Platform, BPMN 2.0 Specifications, JSF Framework, Java Enterprise Edition 7.0, and more</p>
+          <a href="tutorials.xhtml" class="button right">Start Learning</a> </div>
+      </section>
+    </article>
+
+</div>
+		</ui:define>
+</ui:composition>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	template="/Resources/Templates/MasterLayout.xhtml">
+
+<ui:define name="windowTitle">About Appflow</ui:define>
+<ui:define name="selector2"><li id="menu_active"><a href="about_us.xhtml"><span><span>About Us</span></span></a></li></ui:define>
+
+
+
+<ui:define name="content">
+
+<article id="content">
+
+       <section class="single_col">
+        <h2 class="pad_bot1">About Appflow</h2>
+        <div class="wrapper">
+        <p class="pad_bot2" style="font-size:20px; line-height: 2em;">Appflow is a Web application that enables its users to use BPMN 2.0, Activiti 
+       	 Engine, and JSF framework to build powerful java workflow-based web application without the overhead that is involved in integrating these 3rd party libraries. 
+        </p>
+		<p class="pad_bot2" style="font-size:20px; line-height: 2em;">
+		 The application works by providing users with
+		 a sample eclipse environment in which, all environment initial configuration and required 3rd party
+		 libraries are provided. After that, the application is able to create JSF based forms (front end and back end) 
+		 that can be used to feed Activiti Engine for Activiti User tasks. The application does so by asking the user the number of forms required, 
+		 the number and type of variables in each form, and whether back end code generation, front end code generation, or both is needed. 
+		 The user is then able to follow provided steps in the application to insert these forms into their environment. 
+		</p>
+		<p class="pad_bot2" style="font-size:20px; line-height: 2em;">
+			The application also provides extra functionalities such as providing user with Activiti Database Scripts for the selected database
+		</p></div>
+       </section>
+    </article>			
+			
+</ui:define>
+</ui:composition>

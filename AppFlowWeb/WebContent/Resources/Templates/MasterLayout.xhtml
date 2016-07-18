@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+
+
+<!-- Header Properties  -->
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title><ui:insert name="windowTitle"></ui:insert></title>
+
+	<ui:insert name="References">
+		<link rel="stylesheet" href="../Resources/Stylesheets/reset.css"
+			type="text/css" media="all"></link>
+		<link rel="stylesheet" href="../Resources/Stylesheets/layout.css"
+			type="text/css" media="all"></link>
+		<link rel="stylesheet" href="../Resources/Stylesheets/style.css"
+			type="text/css" media="all"></link>
+		<script type="text/javascript"
+			src="../Resources/Javascripts/cufon-replace.js"></script>
+		<script type="text/javascript"
+			src="../Resources/Javascripts/Didact_Gothic_400.font.js"></script>
+		<script type="text/javascript"
+			src="../Resources/Javascripts/Shanti_400.font.js"></script>
+		<script type="text/javascript"
+			src="../Resources/Javascripts/roundabout.js"></script>
+		<script type="text/javascript"
+			src="../Resources/Javascripts/roundabout_shapes.js"></script>
+		<script type="text/javascript"
+			src="../Resources/Javascripts/jquery.easing.1.2.js"></script>
+		<script type="text/javascript"
+			src="../Resources/Javascripts/script.js"></script>
+	</ui:insert>
+</h:head>
+
+
+
+
+<h:body>
+	<f:view contentType="text/html">
+
+		<div class="body1">
+			<div class="main">
+
+
+				<!-- header -->
+				<header> <!-- TopBar -->
+				<ui:include src="/Resources/Templates/TopBar.xhtml"></ui:include> <!-- Header -->
+				<ui:include src="/Resources/Templates/Header.xhtml"></ui:include> </header>
+
+				<!-- content -->
+				<ui:insert name="content"></ui:insert>
+
+			</div>
+		</div>
+
+
+		<!-- contentFooter -->
+		<ui:include src="/Resources/Templates/ContentFooter.xhtml"></ui:include>
+
+
+		<!-- Pagefooter -->
+		<ui:include src="/Resources/Templates/PageFooter.xhtml"></ui:include>
+	</f:view>
+</h:body>
+</html>
+
+
+
+
