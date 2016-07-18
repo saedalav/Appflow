@@ -12,6 +12,13 @@ import org.activiti.engine.ProcessEngines;
 @WebListener
 public class ApplicationStartup implements ServletContextListener {
 
+	//Make sure JDBC Driver for your Database is on the path
+	//Set the following Variables
+	final private String jdbcUrl = "jdbc:mysql://localhost:3306/appflowdb?autoReconnect=true";
+	final private String jdbcDriver = "com.mysql.jdbc.Driver";
+	final private String jdbcUser = "root";
+	final private String jdbcPassword = "asdfas32"; 
+	
 	@Override
 	public void contextDestroyed(ServletContextEvent arg0) {
 		ProcessEngines.destroy();
@@ -28,9 +35,9 @@ public class ApplicationStartup implements ServletContextListener {
 		// db user & paswrd, jdbc driver and engine name are set 
 		ProcessEngine processEngine = ProcessEngineConfiguration
 				.createStandaloneProcessEngineConfiguration()
-				.setJdbcUrl("jdbc:mysql://localhost:3306/appflowdb?autoReconnect=true")
-				.setJdbcDriver("com.mysql.jdbc.Driver").setJdbcUsername("root")
-				.setJdbcPassword("asdfas32").setJobExecutorActivate(true).setDatabaseSchemaUpdate("true")
+				.setJdbcUrl(jdbcUrl)
+				.setJdbcDriver(jdbcDriver).setJdbcUsername(jdbcUser)
+				.setJdbcPassword(jdbcPassword).setJobExecutorActivate(true).setDatabaseSchemaUpdate("true")
 				.setProcessEngineName("Main Engine").buildProcessEngine();
 		ProcessEngines.registerProcessEngine(processEngine);
 		if (processEngine == null)
