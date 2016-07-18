@@ -12,8 +12,8 @@ import org.activiti.engine.ProcessEngines;
 @WebListener
 public class ApplicationStartup implements ServletContextListener {
 
-	//Make sure JDBC Driver for your Database is on the path
-	//Set the following Variables
+	//Make sure JDBC Driver for your Database is on the path.
+	//Set the following Variables.
 	final private String jdbcUrl = "jdbc:mysql://localhost:3306/appflowdb?autoReconnect=true";
 	final private String jdbcDriver = "com.mysql.jdbc.Driver";
 	final private String jdbcUser = "root";
